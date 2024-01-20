@@ -23,70 +23,40 @@ struct ContentView: View {
     
     @State private var remainingFunds = 1000
     
+    @State private var remainingTime = 30
+    
     
     var exhaustPackageAffordable: Bool {
-        if exhaustPackage == true {
-            return true
-        }
-        else{
-            if remainingFunds >= 500 {
-                return true
-            }
-            else{
-                return false
-            }
-       }
+        
+        return exhaustPackage ? true : remainingFunds >= 500 ? true : false
+        
    }
     
-    func printOptional() -> Void {
-        print(type(of: exhaustPackageAffordable))
-    }
-    
-    
-
-    
-    
     var tiresPackageAffordable: Bool {
-        if tiresPackage == true {
-            return true
-        }
-        else{
-            if remainingFunds >= 500 {
-                return true
-            }
-            else{
-                return false
-            }
-        }
+        
+        return tiresPackage ? true : remainingFunds >= 300 ? true : false
+
     }
     
     var nitrousPackageAffordable: Bool {
-        if nitrousPackage == true {
-            return true
-        }
-        else{
-            if remainingFunds >= 500 {
-                return true
-            }
-            else{
-                return false
-            }
-        }
+        
+        return nitrousPackage ? true : remainingFunds >= 750 ? true : false
+        
     }
     
     var winterChainsPackageAffordable: Bool {
-        if winterChainsPackage == true {
-            return true
-        }
-        else{
-            if remainingFunds >= 500 {
-                return true
-            }
-            else{
-                return false
-            }
-        }
+        
+        return winterChainsPackage ? true : remainingFunds >= 200 ? true : false
+        
     }
+    
+    var timeUp: Bool {
+        
+        return remainingTime>0 ? true : false
+        
+    }
+    
+    let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
 
     
     var body: some View {
@@ -136,11 +106,22 @@ struct ContentView: View {
             else{
                 starterCars.cars[selectedCar].handling -= 2
                 starterCars.cars[selectedCar].acceleration -= 2
-                remainingFunds -= 200
+                remainingFunds += 200
             }
         })
         
+        
+        
         VStack {
+            
+            Text("\(remainingTime)")
+                .onReceive(timer, perform: { _ in
+                    if remainingTime > 0 {
+                        remainingTime -= 1
+                    }
+                })
+                .foregroundColor(.red)
+            
             Form {
                 VStack(alignment: .center, spacing: 20) {
                     
@@ -160,16 +141,21 @@ struct ContentView: View {
                         }
                         
                     })
+                    .disabled(!timeUp)
                     
                     Section {
                         
                         Toggle("Exhaust Package (cost: 500)", isOn: exhaustPackageBinding)
+                            .disabled(!timeUp)
                             .disabled(!exhaustPackageAffordable)
                         Toggle("Tires Package (cost: 300)", isOn: tiresPackageBinding)
+                            .disabled(!timeUp)
                             .disabled(!tiresPackageAffordable)
                         Toggle("Nitrous Package (cost: 750)", isOn: nitrousPackageBinding)
+                            .disabled(!timeUp)
                             .disabled(!nitrousPackageAffordable)
                         Toggle("Winter Chains Package (cost: 200)", isOn: winterChainsPackageBinding)
+                            .disabled(!timeUp)
                             .disabled(!winterChainsPackageAffordable)
                         
                     }

@@ -23,8 +23,59 @@ struct ContentView: View {
     
     @State private var remainingFunds = 1000
     
+    
     var exhaustPackageAffordable: Bool {
         if exhaustPackage == true {
+            return true
+        }
+        else{
+            if remainingFunds >= 500 {
+                return true
+            }
+            else{
+                return false
+            }
+       }
+   }
+    
+    func printOptional() -> Void {
+        print(type(of: exhaustPackageAffordable))
+    }
+    
+    
+
+    
+    
+    var tiresPackageAffordable: Bool {
+        if tiresPackage == true {
+            return true
+        }
+        else{
+            if remainingFunds >= 500 {
+                return true
+            }
+            else{
+                return false
+            }
+        }
+    }
+    
+    var nitrousPackageAffordable: Bool {
+        if nitrousPackage == true {
+            return true
+        }
+        else{
+            if remainingFunds >= 500 {
+                return true
+            }
+            else{
+                return false
+            }
+        }
+    }
+    
+    var winterChainsPackageAffordable: Bool {
+        if winterChainsPackage == true {
             return true
         }
         else{
@@ -41,7 +92,7 @@ struct ContentView: View {
     var body: some View {
         
         
-        //get: updates self.exhaust package, set: sets newValue to be used in setting new values
+        //get: uses self.exhaust package in toggle, set: sets newValue to be used in setting new values
         
         let exhaustPackageBinding = Binding<Bool> (get: {self.exhaustPackage}, set: {newValue in self.exhaustPackage = newValue
             if newValue == true {
@@ -113,9 +164,13 @@ struct ContentView: View {
                     Section {
                         
                         Toggle("Exhaust Package (cost: 500)", isOn: exhaustPackageBinding)
+                            .disabled(!exhaustPackageAffordable)
                         Toggle("Tires Package (cost: 300)", isOn: tiresPackageBinding)
+                            .disabled(!tiresPackageAffordable)
                         Toggle("Nitrous Package (cost: 750)", isOn: nitrousPackageBinding)
+                            .disabled(!nitrousPackageAffordable)
                         Toggle("Winter Chains Package (cost: 200)", isOn: winterChainsPackageBinding)
+                            .disabled(!winterChainsPackageAffordable)
                         
                     }
                     
@@ -144,3 +199,5 @@ struct ContentView: View {
 #Preview {
     ContentView()
 }
+
+

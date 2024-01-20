@@ -15,14 +15,17 @@ final class CarCustomiserTests: XCTestCase {
         //act
         
         let car = Car(make: "Ferrari", model: "La Ferrari", topSpeed: 205, acceleration: 5.3, handling: 8)
+        let expected = """
+Make: \(car.make)
+Model: \(car.model)
+Top Speed: \(car.topSpeed)mph
+Acceleration (0-60): \(car.acceleration)s
+Handling: \(car.handling)
+"""
         
         //assert
         
-        XCTAssertEqual(car.make, "Ferrari")
-        XCTAssertEqual(car.model, "La Ferrari")
-        XCTAssertEqual(car.topSpeed, 205)
-        XCTAssertEqual(car.acceleration, 5.3)
-        XCTAssertEqual(car.handling, 8)
+        XCTAssertEqual(expected, car.displayStats())
     }
     
 }

@@ -16,6 +16,7 @@
 		DB30208F2B4F24DE006F29A2 /* CarCustomiserUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB30208E2B4F24DE006F29A2 /* CarCustomiserUITestsLaunchTests.swift */; };
 		DB5112412B50B0630077182B /* Car.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB5112402B50B0630077182B /* Car.swift */; };
 		DB5112422B50B0630077182B /* Car.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB5112402B50B0630077182B /* Car.swift */; };
+		DBBD99662B5C3550003A9207 /* StarterCars.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBBD99652B5C3550003A9207 /* StarterCars.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +48,7 @@
 		DB30208C2B4F24DE006F29A2 /* CarCustomiserUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarCustomiserUITests.swift; sourceTree = "<group>"; };
 		DB30208E2B4F24DE006F29A2 /* CarCustomiserUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarCustomiserUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		DB5112402B50B0630077182B /* Car.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Car.swift; sourceTree = "<group>"; };
+		DBBD99652B5C3550003A9207 /* StarterCars.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarterCars.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,9 +101,10 @@
 			children = (
 				DB3020712B4F24D9006F29A2 /* CarCustomiserApp.swift */,
 				DB3020732B4F24D9006F29A2 /* ContentView.swift */,
+				DB5112402B50B0630077182B /* Car.swift */,
+				DBBD99652B5C3550003A9207 /* StarterCars.swift */,
 				DB3020752B4F24DE006F29A2 /* Assets.xcassets */,
 				DB3020772B4F24DE006F29A2 /* Preview Content */,
-				DB5112402B50B0630077182B /* Car.swift */,
 			);
 			path = CarCustomiser;
 			sourceTree = "<group>";
@@ -263,6 +266,7 @@
 			files = (
 				DB3020742B4F24D9006F29A2 /* ContentView.swift in Sources */,
 				DB3020722B4F24D9006F29A2 /* CarCustomiserApp.swift in Sources */,
+				DBBD99662B5C3550003A9207 /* StarterCars.swift in Sources */,
 				DB5112412B50B0630077182B /* Car.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -518,12 +522,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = Etonfreddiehoward.CarCustomiserUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -535,12 +541,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = Etonfreddiehoward.CarCustomiserUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
